@@ -22,6 +22,16 @@ export default function Header() {
 
           {/* Right controls */}
           <div className="flex items-center gap-2">
+            <button
+              type="button"
+              aria-label="Open navigation menu"
+              className="inline-flex flex-col items-center justify-center gap-1 rounded-full border border-white/10 bg-white/5 p-2 text-white transition-colors hover:bg-white/10 md:hidden"
+            >
+              <span className="sr-only">Open navigation menu</span>
+              <span className="h-0.5 w-6 rounded-full bg-current" />
+              <span className="h-0.5 w-6 rounded-full bg-current" />
+              <span className="h-0.5 w-6 rounded-full bg-current" />
+            </button>
 			<button
               type="button"
               className="hidden sm:inline-flex items-center gap-1 rounded-full bg-white/5 px-3 py-1 text-xs text-white hover:text-white hover:bg-white/10 transition-colors"

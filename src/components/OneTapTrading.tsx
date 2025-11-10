@@ -40,10 +40,10 @@ export default function OneTapTrading() {
               />
             </div>
             <div className="rounded-xl p-8 pt-16 h-[200px] flex flex-col justify-center shadow-[0_0_20px_rgba(138,11,74,0.3)] hover:shadow-[0_0_30px_rgba(138,11,74,0.5)] transition-all duration-300" style={{ background: 'radial-gradient(circle,rgba(138, 11, 74, 0.15) 0%,rgba(0, 17, 255, 0.23) 100%)' }}>
-              <h3 className="text-[24px] font-bold mb-6 bg-gradient-to-r from-pink-500 to-white bg-clip-text text-transparent" style={{ fontFamily: '\"Press Start\", Arial, Helvetica, sans-serif' }}>
+              <h3 className="text-[18px] md:text-[24px] font-bold mb-6 bg-gradient-to-r from-pink-500 to-white bg-clip-text text-transparent" style={{ fontFamily: '\"Press Start\", Arial, Helvetica, sans-serif' }}>
                 500+
               </h3>
-              <p className="text-white text-base">One-Tap Buying With Apple Pay, Google Pay, SEPA, And More</p>
+              <p className="text-white text-sm md:text-base">One-Tap Buying With Apple Pay, Google Pay, SEPA, And More</p>
             </div>
           </div>
 
@@ -61,10 +61,10 @@ export default function OneTapTrading() {
               />
             </div>
             <div className="rounded-xl p-8 pt-16 h-[200px] flex flex-col justify-center shadow-[0_0_20px_rgba(138,11,74,0.3)] hover:shadow-[0_0_30px_rgba(138,11,74,0.5)] transition-all duration-300" style={{ background: 'radial-gradient(circle,rgba(138, 11, 74, 0.15) 0%,rgba(0, 17, 255, 0.23) 100%)' }}>
-              <h3 className="text-[24px] font-bold mb-6 bg-gradient-to-r from-pink-500 to-white bg-clip-text text-transparent" style={{ fontFamily: '\"Press Start\", Arial, Helvetica, sans-serif' }}>
+              <h3 className="text-[18px] md:text-[24px] font-bold mb-6 bg-gradient-to-r from-pink-500 to-white bg-clip-text text-transparent" style={{ fontFamily: '\"Press Start\", Arial, Helvetica, sans-serif' }}>
                 30S
               </h3>
-              <p className="text-white text-base">Instant Onboarding With Pre-Built Wallets & No Setup Required</p>
+              <p className="text-white text-sm md:text-base">Instant Onboarding With Pre-Built Wallets & No Setup Required</p>
             </div>
           </div>
 
@@ -82,10 +82,10 @@ export default function OneTapTrading() {
               />
             </div>
             <div className="rounded-xl p-8 pt-16 h-[200px] flex flex-col justify-center shadow-[0_0_20px_rgba(138,11,74,0.3)] hover:shadow-[0_0_30px_rgba(138,11,74,0.5)] transition-all duration-300" style={{ background: 'radial-gradient(circle,rgba(138, 11, 74, 0.15) 0%,rgba(0, 17, 255, 0.23) 100%)' }}>
-              <h3 className="text-[24px] font-bold mb-6 bg-gradient-to-r from-pink-500 to-white bg-clip-text text-transparent" style={{ fontFamily: '\"Press Start\", Arial, Helvetica, sans-serif' }}>
+              <h3 className="text-[18px] md:text-[24px] font-bold mb-6 bg-gradient-to-r from-pink-500 to-white bg-clip-text text-transparent" style={{ fontFamily: '\"Press Start\", Arial, Helvetica, sans-serif' }}>
                 10K COINS
               </h3>
-              <p className="text-white text-base">Real-Time Social Sentiment & Trend Analysis For Smarter Trading</p>
+              <p className="text-white text-sm md:text-base">Real-Time Social Sentiment & Trend Analysis For Smarter Trading</p>
             </div>
           </div>
 
@@ -103,10 +103,10 @@ export default function OneTapTrading() {
               />
             </div>
             <div className="rounded-xl p-8 pt-16 h-[200px] flex flex-col justify-center shadow-[0_0_20px_rgba(138,11,74,0.3)] hover:shadow-[0_0_30px_rgba(138,11,74,0.5)] transition-all duration-300" style={{ background: 'radial-gradient(circle,rgba(138, 11, 74, 0.15) 0%,rgba(0, 17, 255, 0.23) 100%)' }}>
-              <h3 className="text-[24px] font-bold mb-6 bg-gradient-to-r from-pink-500 to-white bg-clip-text text-transparent" style={{ fontFamily: '\"Press Start\", Arial, Helvetica, sans-serif' }}>
+              <h3 className="text-[18px] md:text-[24px] font-bold mb-6 bg-gradient-to-r from-pink-500 to-white bg-clip-text text-transparent" style={{ fontFamily: '\"Press Start\", Arial, Helvetica, sans-serif' }}>
                 130+
               </h3>
-              <p className="text-white text-base">Available In 130+ Countries Around The World</p>
+              <p className="text-white text-sm md:text-base">Available In 130+ Countries Around The World</p>
             </div>
           </div>
         </div>

@@ -93,7 +93,7 @@ export default function PaymentIntegration() {
       <div className="mx-auto max-w-[1600px] px-6 w-full">
         <div className="grid grid-cols-1 md:grid-cols-12 items-center gap-12">
           {/* Visual column (50%) - moved to left with phone model - takes space on desktop for Hero model, but model only visible on mobile */}
-          <div ref={setModelRefs} className={`md:col-span-6 w-full h-[500px] md:h-[600px] relative transition-all duration-700 ease-out ${modelVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
+          <div ref={setModelRefs} className={`order-2 md:order-1 md:col-span-6 w-full h-[500px] md:h-[600px] relative transition-all duration-700 ease-out ${modelVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
             {/* Glow effect behind 3D model - hidden on desktop */}
             <div className="absolute inset-0 flex items-center justify-center -translate-x-8 block md:hidden">
               <div className="h-[400px] w-[300px] md:h-[500px] md:w-[350px] rounded-full bg-[#0013FF]/20 blur-3xl" />
@@ -129,7 +129,7 @@ export default function PaymentIntegration() {
           </div>
 
           {/* Text column (50%) - moved to right */}
-          <div ref={textRef} className={`md:col-span-6 text-center md:text-right transition-all duration-700 ease-out ${textVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
+          <div ref={textRef} className={`order-1 md:order-2 md:col-span-6 text-center md:text-right transition-all duration-700 ease-out ${textVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
           <span className="block text-[14px] md:text-[24px] leading-[1.4] tracking-[0.02em] font-light" style={{ fontFamily: 'var(--font-inter), Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif' }}>
           Over 500 Payment Providers
             </span>

@@ -236,7 +236,7 @@ export default function Hero() {
 			<div className="mx-auto max-w-[1400px] px-6 w-full">
 				<div className="grid grid-cols-1 md:grid-cols-12 items-center gap-8">
 					{/* Text column (50%) */}
-					<div className="md:col-span-6 text-center">
+					<div className="md:col-span-6 text-center pt-24 md:pt-0">
 						<h1 className="text-white">
 							<span className="block text-[20px] md:text-[32px] leading-[1.2] tracking-[0.01em] uppercase" style={{ fontFamily: '\"Press Start\", Arial, Helvetica, sans-serif' }}>
 								TRADE MEMECOINS
@@ -280,7 +280,7 @@ export default function Hero() {
 					</div>
 
 					{/* Visual column (50%) */}
-					<div ref={modelColumnRef} className="md:col-span-6 w-full h-[400px] md:h-[600px] relative">
+					<div ref={modelColumnRef} className="md:col-span-6 w-full h-[400px] md:h-[600px] relative pt-24 md:pt-0">
 						{/* Glow effect behind 3D model */}
 						<div className="absolute inset-0 flex items-center justify-center z-0">
 							<div className="h-[500px] w-[500px] md:h-[500px] md:w-[500px] rounded-full bg-[#0013FF]/35 blur-3xl animate-pulse" />

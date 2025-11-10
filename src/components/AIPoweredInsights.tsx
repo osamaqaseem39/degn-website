@@ -60,10 +60,10 @@ export default function AIPoweredInsights() {
                   />
                 </div>
                 <div className="rounded-xl p-6 pt-12 shadow-[0_0_20px_rgba(138,11,74,0.3)] hover:shadow-[0_0_30px_rgba(138,11,74,0.5)] transition-all duration-300" style={{ background: 'radial-gradient(circle,rgba(138, 11, 74, 0.15) 0%,rgba(0, 17, 255, 0.23) 100%)' }}>
-                  <h3 className="text-[16px] font-bold mb-4 bg-gradient-to-r from-pink-500 to-white bg-clip-text text-transparent" style={{ fontFamily: '\"Press Start\", Arial, Helvetica, sans-serif' }}>
+                  <h3 className="text-[14px] md:text-[16px] font-bold mb-4 bg-gradient-to-r from-pink-500 to-white bg-clip-text text-transparent" style={{ fontFamily: '\"Press Start\", Arial, Helvetica, sans-serif' }}>
                     AI SPOTLIGHT 
                   </h3>
-                  <p className="text-white text-sm">Tracks Social Sentiment & Trading Volume</p>
+                  <p className="text-white text-xs md:text-sm">Tracks Social Sentiment & Trading Volume</p>
                 </div>
               </div>
 
@@ -81,10 +81,10 @@ export default function AIPoweredInsights() {
                   />
                 </div>
                 <div className="rounded-xl p-6 pt-12 shadow-[0_0_20px_rgba(138,11,74,0.3)] hover:shadow-[0_0_30px_rgba(138,11,74,0.5)] transition-all duration-300" style={{ background: 'radial-gradient(circle,rgba(138, 11, 74, 0.15) 0%,rgba(0, 17, 255, 0.23) 100%)' }}>
-                  <h3 className="text-[16px] font-bold mb-4 bg-gradient-to-r from-pink-500 to-white bg-clip-text text-transparent" style={{ fontFamily: '\"Press Start\", Arial, Helvetica, sans-serif' }}>
+                  <h3 className="text-[14px] md:text-[16px] font-bold mb-4 bg-gradient-to-r from-pink-500 to-white bg-clip-text text-transparent" style={{ fontFamily: '\"Press Start\", Arial, Helvetica, sans-serif' }}>
                     REAL-TIME TRENDING
                   </h3>
-                  <p className="text-white text-sm">Meme Alerts To Catch The Next Viral Coin Early</p>
+                  <p className="text-white text-xs md:text-sm">Meme Alerts To Catch The Next Viral Coin Early</p>
                 </div>
               </div>
 
@@ -102,10 +102,10 @@ export default function AIPoweredInsights() {
                   />
                 </div>
                 <div className="rounded-xl p-6 pt-12 shadow-[0_0_20px_rgba(138,11,74,0.3)] hover:shadow-[0_0_30px_rgba(138,11,74,0.5)] transition-all duration-300" style={{ background: 'radial-gradient(circle,rgba(138, 11, 74, 0.15) 0%,rgba(0, 17, 255, 0.23) 100%)' }}>
-                  <h3 className="text-[16px] font-bold mb-4 bg-gradient-to-r from-pink-500 to-white bg-clip-text text-transparent" style={{ fontFamily: '\"Press Start\", Arial, Helvetica, sans-serif' }}>
+                  <h3 className="text-[14px] md:text-[16px] font-bold mb-4 bg-gradient-to-r from-pink-500 to-white bg-clip-text text-transparent" style={{ fontFamily: '\"Press Start\", Arial, Helvetica, sans-serif' }}>
                     RISK ASSESSMENT
                   </h3>
-                  <p className="text-white text-sm">Scoring For Better Decision-Making</p>
+                  <p className="text-white text-xs md:text-sm">Scoring For Better Decision-Making</p>
                 </div>
               </div>
 
@@ -123,10 +123,10 @@ export default function AIPoweredInsights() {
                   />
                 </div>
                 <div className="rounded-xl p-6 pt-12 shadow-[0_0_20px_rgba(138,11,74,0.3)] hover:shadow-[0_0_30px_rgba(138,11,74,0.5)] transition-all duration-300" style={{ background: 'radial-gradient(circle,rgba(138, 11, 74, 0.15) 0%,rgba(0, 17, 255, 0.23) 100%)' }}>
-                  <h3 className="text-[16px] font-bold mb-4 bg-gradient-to-r from-pink-500 to-white bg-clip-text text-transparent" style={{ fontFamily: '\"Press Start\", Arial, Helvetica, sans-serif' }}>
+                  <h3 className="text-[14px] md:text-[16px] font-bold mb-4 bg-gradient-to-r from-pink-500 to-white bg-clip-text text-transparent" style={{ fontFamily: '\"Press Start\", Arial, Helvetica, sans-serif' }}>
                     COMMUNITY INSIGHTS
                   </h3>
-                  <p className="text-white text-sm">Dashboard To See What Traders Are Buzzing About</p>
+                  <p className="text-white text-xs md:text-sm">Dashboard To See What Traders Are Buzzing About</p>
                 </div>
               </div>
             </div>
