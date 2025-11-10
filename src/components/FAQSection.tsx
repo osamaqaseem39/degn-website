@@ -42,7 +42,7 @@ export default function FAQSection() {
   };
 
   return (
-    <section className="relative overflow-hidden py-20 md:py-32 bg-black">
+    <section id="why" className="relative overflow-hidden py-20 md:py-32 bg-black">
       <div className="mx-auto max-w-[1600px] px-6 w-full">
         {/* Header */}
         <div ref={headerRef} className={`text-center mb-16 transition-all duration-700 ease-out ${headerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>

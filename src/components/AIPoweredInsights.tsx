@@ -19,7 +19,7 @@ export default function AIPoweredInsights() {
     setMousePosition({ x: 0, y: 0 });
   };
   return (
-    <section className="relative overflow-hidden py-20 md:py-32">
+    <section id="features" className="relative overflow-hidden py-20 md:py-32">
       <div className="mx-auto max-w-[1600px] px-6 w-full">
         <div className="grid grid-cols-1 md:grid-cols-12 items-center gap-12">
           {/* Text column (70%) */}
