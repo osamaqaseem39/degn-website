@@ -25,7 +25,7 @@ export default function OneTapTrading() {
         <div className="mb-8" />
 
         {/* Feature blocks */}
-        <div ref={gridRef} className={`grid grid-cols-2 md:grid-cols-4 gap-6 transition-all duration-700 ease-out ${gridVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
+        <div ref={gridRef} className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 transition-all duration-700 ease-out ${gridVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
           {/* Feature 1: 500+ Payment Methods */}
           <div className="relative">
             {/* Circular transparent gray icon */}
@@ -39,7 +39,7 @@ export default function OneTapTrading() {
                 loading="lazy"
               />
             </div>
-            <div className="rounded-xl p-8 pt-16 h-[200px] flex flex-col justify-center shadow-[0_0_20px_rgba(138,11,74,0.3)] hover:shadow-[0_0_30px_rgba(138,11,74,0.5)] transition-all duration-300" style={{ background: 'radial-gradient(circle,rgba(138, 11, 74, 0.15) 0%,rgba(0, 17, 255, 0.23) 100%)' }}>
+            <div className="rounded-xl p-6 md:p-8 pt-14 md:pt-16 h-[200px] flex flex-col justify-center shadow-[0_0_20px_rgba(138,11,74,0.3)] hover:shadow-[0_0_30px_rgba(138,11,74,0.5)] transition-all duration-300" style={{ background: 'radial-gradient(circle,rgba(138, 11, 74, 0.15) 0%,rgba(0, 17, 255, 0.23) 100%)' }}>
               <h3 className="text-[18px] md:text-[24px] font-bold mb-6 bg-gradient-to-r from-pink-500 to-white bg-clip-text text-transparent" style={{ fontFamily: '\"Press Start\", Arial, Helvetica, sans-serif' }}>
                 500+
               </h3>
@@ -60,7 +60,7 @@ export default function OneTapTrading() {
                 loading="lazy"
               />
             </div>
-            <div className="rounded-xl p-8 pt-16 h-[200px] flex flex-col justify-center shadow-[0_0_20px_rgba(138,11,74,0.3)] hover:shadow-[0_0_30px_rgba(138,11,74,0.5)] transition-all duration-300" style={{ background: 'radial-gradient(circle,rgba(138, 11, 74, 0.15) 0%,rgba(0, 17, 255, 0.23) 100%)' }}>
+            <div className="rounded-xl p-6 md:p-8 pt-14 md:pt-16 h-[200px] flex flex-col justify-center shadow-[0_0_20px_rgba(138,11,74,0.3)] hover:shadow-[0_0_30px_rgba(138,11,74,0.5)] transition-all duration-300" style={{ background: 'radial-gradient(circle,rgba(138, 11, 74, 0.15) 0%,rgba(0, 17, 255, 0.23) 100%)' }}>
               <h3 className="text-[18px] md:text-[24px] font-bold mb-6 bg-gradient-to-r from-pink-500 to-white bg-clip-text text-transparent" style={{ fontFamily: '\"Press Start\", Arial, Helvetica, sans-serif' }}>
                 30S
               </h3>
@@ -81,7 +81,7 @@ export default function OneTapTrading() {
                 loading="lazy"
               />
             </div>
-            <div className="rounded-xl p-8 pt-16 h-[200px] flex flex-col justify-center shadow-[0_0_20px_rgba(138,11,74,0.3)] hover:shadow-[0_0_30px_rgba(138,11,74,0.5)] transition-all duration-300" style={{ background: 'radial-gradient(circle,rgba(138, 11, 74, 0.15) 0%,rgba(0, 17, 255, 0.23) 100%)' }}>
+            <div className="rounded-xl p-6 md:p-8 pt-14 md:pt-16 h-[200px] flex flex-col justify-center shadow-[0_0_20px_rgba(138,11,74,0.3)] hover:shadow-[0_0_30px_rgba(138,11,74,0.5)] transition-all duration-300" style={{ background: 'radial-gradient(circle,rgba(138, 11, 74, 0.15) 0%,rgba(0, 17, 255, 0.23) 100%)' }}>
               <h3 className="text-[18px] md:text-[24px] font-bold mb-6 bg-gradient-to-r from-pink-500 to-white bg-clip-text text-transparent" style={{ fontFamily: '\"Press Start\", Arial, Helvetica, sans-serif' }}>
                 10K COINS
               </h3>
@@ -102,7 +102,7 @@ export default function OneTapTrading() {
                 loading="lazy"
               />
             </div>
-            <div className="rounded-xl p-8 pt-16 h-[200px] flex flex-col justify-center shadow-[0_0_20px_rgba(138,11,74,0.3)] hover:shadow-[0_0_30px_rgba(138,11,74,0.5)] transition-all duration-300" style={{ background: 'radial-gradient(circle,rgba(138, 11, 74, 0.15) 0%,rgba(0, 17, 255, 0.23) 100%)' }}>
+            <div className="rounded-xl p-6 md:p-8 pt-14 md:pt-16 h-[200px] flex flex-col justify-center shadow-[0_0_20px_rgba(138,11,74,0.3)] hover:shadow-[0_0_30px_rgba(138,11,74,0.5)] transition-all duration-300" style={{ background: 'radial-gradient(circle,rgba(138, 11, 74, 0.15) 0%,rgba(0, 17, 255, 0.23) 100%)' }}>
               <h3 className="text-[18px] md:text-[24px] font-bold mb-6 bg-gradient-to-r from-pink-500 to-white bg-clip-text text-transparent" style={{ fontFamily: '\"Press Start\", Arial, Helvetica, sans-serif' }}>
                 130+
               </h3>

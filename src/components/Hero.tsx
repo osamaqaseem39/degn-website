@@ -72,9 +72,9 @@ export default function Hero() {
 
   // Memoize transform calculations to reduce re-renders
   const firstModelTransform = useMemo(() => {
-    // On mobile, no transform - just stay in place
+    // On mobile, keep model centered without extra translation
     if (isMobile) {
-      return `translate(-40px, -60px)`;
+      return `translate(0, 0)`;
     }
     if (scrollProgress >= 0.99) {
       return `translate(${-(0.99 * 80)}vw, ${0.99 * 200}vh) translate(-40px, -60px)`;
@@ -234,9 +234,9 @@ export default function Hero() {
 				</div>
 			)}
 			<div className="mx-auto max-w-[1400px] px-6 w-full">
-				<div className="grid grid-cols-1 md:grid-cols-12 items-center gap-8">
+				<div className="grid grid-cols-1 md:grid-cols-12 items-center gap-6 md:gap-8">
 					{/* Text column (50%) */}
-					<div className="md:col-span-6 text-center pt-24 md:pt-0">
+					<div className="md:col-span-6 text-center pt-16 md:pt-0">
 						<h1 className="text-white">
 							<span className="block text-[20px] md:text-[32px] leading-[1.2] tracking-[0.01em] uppercase" style={{ fontFamily: '\"Press Start\", Arial, Helvetica, sans-serif' }}>
 								TRADE MEMECOINS
@@ -280,51 +280,77 @@ export default function Hero() {
 					</div>
 
 					{/* Visual column (50%) */}
-					<div ref={modelColumnRef} className="md:col-span-6 w-full h-[400px] md:h-[600px] relative pt-24 md:pt-0">
+					<div ref={modelColumnRef} className="md:col-span-6 w-full h-[400px] md:h-[600px] relative pt-12 md:pt-0">
 						{/* Glow effect behind 3D model */}
 						<div className="absolute inset-0 flex items-center justify-center z-0">
 							<div className="h-[500px] w-[500px] md:h-[500px] md:w-[500px] rounded-full bg-[#0013FF]/35 blur-3xl animate-pulse" />
 							<div className="absolute h-[300px] w-[300px] md:h-[300px] md:w-[300px] rounded-full bg-pink-500/20 blur-2xl animate-pulse delay-1000" />
 						</div>
 						{/* First model container */}
-						{firstContainerRect.width > 0 && firstContainerRect.height > 0 && (
-							<div
-								className={isMobile ? "absolute inset-0 z-[1099] pointer-events-none" : "fixed z-[1099] pointer-events-none"}
-								style={isMobile ? {} : {
-									top: firstContainerRect.top + offsetYpx + 30,
-									left: firstContainerRect.left + offsetXpx + 100,
-									width: firstContainerRect.width,
-									height: firstContainerRect.height,
-								}}
-							>
-								{/* First model (Phone_02-Spotlight.glb) - fades out between 55% and 65% scroll */}
+						{isMobile ? (
+							<div className="relative z-[1099] flex h-full items-center justify-center pointer-events-none">
 								<div
-									className="absolute inset-0 flex items-center justify-center"
+									className="flex h-full w-full items-center justify-center"
 									style={{
 										transform: firstModelTransform,
-										willChange: isMobile ? 'auto' : (scrollProgress >= 0.99 ? 'auto' : 'transform'),
 										opacity: firstModelOpacity,
 										visibility: firstModelOpacity <= 0.01 ? 'hidden' : 'visible',
-										pointerEvents: firstModelOpacity > 0 ? 'auto' : 'none',
 									}}
 								>
 									<ThreeScene
 										modelPath={PRIMARY_MODEL_PATH}
 										noLights={false}
-										scrollProgress={isMobile ? undefined : scrollProgress}
-										enableScrollAnimation={!isMobile}
-										autoRotate={isMobile}
-										rotationSpeed={isMobile ? 0.2 : undefined}
-										semiRotate={isMobile}
-										scaleMultiplier={1.5}
-										initialRotation={[0, -0.3, -0.45]} // Rotated left to cross with the bottom model
-										className="w-full h-full"
+										scrollProgress={undefined}
+										enableScrollAnimation={false}
+										autoRotate
+										rotationSpeed={0.2}
+										semiRotate
+										scaleMultiplier={1.3}
+										initialRotation={[0, -0.3, -0.45]}
+										className="h-[320px] w-[320px]"
 										opacity={firstModelOpacity}
 										onModelReady={handleModelReady}
 									/>
 								</div>
-								{/* Second model (Phone_3.glb) - fades in between 55% and 65% scroll */}
-								{!isMobile && (
+							</div>
+						) : (
+							firstContainerRect.width > 0 && firstContainerRect.height > 0 && (
+								<div
+									className="fixed z-[1099] pointer-events-none"
+									style={{
+										top: firstContainerRect.top + offsetYpx + 30,
+										left: firstContainerRect.left + offsetXpx + 100,
+										width: firstContainerRect.width,
+										height: firstContainerRect.height,
+									}}
+								>
+									{/* First model (Phone_02-Spotlight.glb) - fades out between 55% and 65% scroll */}
+									<div
+										className="absolute inset-0 flex items-center justify-center"
+										style={{
+											transform: firstModelTransform,
+											willChange: scrollProgress >= 0.99 ? 'auto' : 'transform',
+											opacity: firstModelOpacity,
+											visibility: firstModelOpacity <= 0.01 ? 'hidden' : 'visible',
+											pointerEvents: firstModelOpacity > 0 ? 'auto' : 'none',
+										}}
+									>
+										<ThreeScene
+											modelPath={PRIMARY_MODEL_PATH}
+											noLights={false}
+											scrollProgress={scrollProgress}
+											enableScrollAnimation
+											autoRotate={false}
+											rotationSpeed={undefined}
+											semiRotate={false}
+											scaleMultiplier={1.5}
+											initialRotation={[0, -0.3, -0.45]} // Rotated left to cross with the bottom model
+											className="w-full h-full"
+											opacity={firstModelOpacity}
+											onModelReady={handleModelReady}
+										/>
+									</div>
+									{/* Second model (Phone_3.glb) - fades in between 55% and 65% scroll */}
 									<div
 										className="absolute inset-0 flex items-center justify-center"
 										style={{
@@ -348,8 +374,8 @@ export default function Hero() {
 											onModelReady={handleModelReady}
 										/>
 									</div>
-								)}
-							</div>
+								</div>
+							)
 						)}
 						{/* Second model container - hidden on mobile */}
 						{!isMobile && secondContainerRect.width > 0 && secondContainerRect.height > 0 && (

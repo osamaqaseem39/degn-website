@@ -45,7 +45,7 @@ export default function AIPoweredInsights() {
             </p>
 
             {/* Feature boxes */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-16">
               {/* AI Spotlight Algorithm */}
               <div className="relative">
                 {/* Circular transparent gray icon */}
