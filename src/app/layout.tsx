@@ -34,7 +34,6 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: "/images/favicon.ico" },
-      { url: "/images/logo.svg", type: "image/svg+xml" },
     ],
   },
   openGraph: {
