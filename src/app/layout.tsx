@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/Header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -10,6 +11,20 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const interThin = Inter({
+  variable: "--font-inter-thin",
+  subsets: ["latin"],
+  weight: "100",
+  display: "swap",
+});
+
+const interRegular = Inter({
+  variable: "--font-inter-regular",
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -25,9 +40,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${interThin.variable} ${interRegular.variable} antialiased`}
       >
-        {children}
+        <Header />
+        <div className="mx-auto max-w-[1600px] px-6">
+          {children}
+        </div>
+        
+        {/* Global glow effects */}
+        <div className="pointer-events-none fixed -bottom-40 left-10 h-[420px] w-[420px] rounded-full bg-emerald-500/10 blur-3xl z-0" />
       </body>
     </html>
   );

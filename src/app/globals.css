@@ -1,8 +1,16 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Press Start";
+  src: url("/font/PressStart2P-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #000000;
+  --foreground: #ededed;
 }
 
 @theme inline {
@@ -10,11 +18,15 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-press: "Press Start", Arial, Helvetica, sans-serif;
+  --font-inter-thin: var(--font-inter-thin);
+  --font-inter-regular: var(--font-inter-regular);
+  --leading-hero: 76px;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #000000;
     --foreground: #ededed;
   }
 }
@@ -22,5 +34,27 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+@keyframes loaderBar {
+  0% {
+    transform: scaleX(0);
+  }
+  50% {
+    transform: scaleX(0.9);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+/* Apply Press Start font only to headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Press Start", var(--font-press), Arial, Helvetica, sans-serif;
+}
+
+/* Custom radial gradient utility */
+.bg-gradient-radial {
+  background: radial-gradient(circle, #E41B81 0%, #0013FF 100%);
 }
