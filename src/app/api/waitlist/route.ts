@@ -26,17 +26,6 @@ type GoogleApiError = {
   };
 };
 
-const SERVICE_ACCOUNT_CREDENTIALS: ServiceAccountCredentials = {
-  client_email: 'YOUR_SERVICE_ACCOUNT_EMAIL',
-  private_key: `-----BEGIN PRIVATE KEY-----
-YOUR_PRIVATE_KEY_GOES_HERE
------END PRIVATE KEY-----`,
-};
-
-const GOOGLE_SHEET_ID = 'YOUR_GOOGLE_SHEET_ID';
-
-const PLACEHOLDER_TOKENS = ['YOUR_SERVICE_ACCOUNT_EMAIL', 'YOUR_PRIVATE_KEY_GOES_HERE', 'YOUR_GOOGLE_SHEET_ID'];
-
 const isGoogleApiError = (error: unknown): error is GoogleApiError => {
   return typeof error === 'object' && error !== null;
 };
@@ -53,9 +42,17 @@ const formatTimestamp = (date: Date): string => {
   return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
 };
 
-const hasPlaceholders = (): boolean => {
-  const serializedCredentials = JSON.stringify(SERVICE_ACCOUNT_CREDENTIALS);
-  return PLACEHOLDER_TOKENS.some((token) => serializedCredentials.includes(token) || GOOGLE_SHEET_ID.includes(token));
+const validateCredentials = (credentials: ServiceAccountCredentials | null, spreadsheetId: string | undefined) => {
+  if (!credentials) {
+    return 'GOOGLE_SERVICE_ACCOUNT_KEY is missing or invalid.';
+  }
+  if (!credentials.client_email || !credentials.private_key) {
+    return 'GOOGLE_SERVICE_ACCOUNT_KEY must include client_email and private_key.';
+  }
+  if (!spreadsheetId || spreadsheetId === 'YOUR_GOOGLE_SHEET_ID') {
+    return 'GOOGLE_SHEET_ID is missing or still set to the placeholder value.';
+  }
+  return null;
 };
 
 export async function POST(request: NextRequest) {
@@ -73,22 +70,42 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    if (hasPlaceholders()) {
-      console.error('Hard-coded Google credentials contain placeholder values.');
+    // Load service account credentials from environment
+    const serviceAccountKey = process.env.GOOGLE_SERVICE_ACCOUNT_KEY;
+    let credentials: ServiceAccountCredentials | null = null;
+    if (serviceAccountKey) {
+      try {
+        credentials = JSON.parse(serviceAccountKey) as ServiceAccountCredentials;
+      } catch (parseError) {
+        console.error('Failed to parse GOOGLE_SERVICE_ACCOUNT_KEY:', parseError);
+        return NextResponse.json(
+          { error: 'Server configuration error: GOOGLE_SERVICE_ACCOUNT_KEY must be valid JSON.' },
+          { status: 500 }
+        );
+      }
+    }
+
+    const spreadsheetId = process.env.GOOGLE_SHEET_ID;
+    const configError = validateCredentials(credentials, spreadsheetId);
+    if (configError) {
+      console.error(configError);
       return NextResponse.json(
-        { error: 'Server configuration error: Google credentials are not configured. Update SERVICE_ACCOUNT_CREDENTIALS and GOOGLE_SHEET_ID in the code before deploying.' },
+        { error: `Server configuration error: ${configError}` },
         { status: 500 }
       );
     }
 
+    const resolvedCredentials = credentials as ServiceAccountCredentials;
+    const resolvedSpreadsheetId = spreadsheetId as string;
+
     // Authenticate with Google Sheets API
     const auth = new google.auth.GoogleAuth({
-      credentials: SERVICE_ACCOUNT_CREDENTIALS,
+      credentials: resolvedCredentials,
       scopes: ['https://www.googleapis.com/auth/spreadsheets'],
     });
 
     // Log the service account email for verification
-    const serviceAccountEmail = SERVICE_ACCOUNT_CREDENTIALS.client_email;
+    const serviceAccountEmail = resolvedCredentials.client_email;
     console.log('Authenticating with service account:', serviceAccountEmail);
 
     const sheets = google.sheets({ version: 'v4', auth });
@@ -100,7 +117,7 @@ export async function POST(request: NextRequest) {
     let sheetName = 'Sheet1';
     try {
       const sheetMetadata = await sheets.spreadsheets.get({
-        spreadsheetId: GOOGLE_SHEET_ID,
+        spreadsheetId: resolvedSpreadsheetId,
         fields: 'sheets.properties.title',
       });
       if (sheetMetadata.data.sheets && sheetMetadata.data.sheets.length > 0) {
@@ -114,7 +131,7 @@ export async function POST(request: NextRequest) {
     // Assuming the sheet has headers: Timestamp, Name, Email, Agree to Emails
     try {
       await sheets.spreadsheets.values.append({
-        spreadsheetId: GOOGLE_SHEET_ID,
+        spreadsheetId: resolvedSpreadsheetId,
         range: `${sheetName}!A:D`, // Use the actual sheet name
         valueInputOption: 'USER_ENTERED',
         requestBody: {
@@ -145,7 +162,7 @@ export async function POST(request: NextRequest) {
               error: `Permission denied. Please make sure the Google Sheet is shared with the service account email: ${serviceAccountEmail} with Editor permissions.`,
               details: errorDetails,
               serviceAccountEmail: serviceAccountEmail,
-              spreadsheetId: GOOGLE_SHEET_ID,
+              spreadsheetId: resolvedSpreadsheetId,
             },
             { status: 403 }
           );
@@ -153,7 +170,7 @@ export async function POST(request: NextRequest) {
 
         if (sheetsError.code === 404 || sheetsError.response?.status === 404) {
           return NextResponse.json(
-            { error: 'Google Sheet not found. Please check that the GOOGLE_SHEET_ID configured in the code is correct.' },
+            { error: 'Google Sheet not found. Please check that the GOOGLE_SHEET_ID is correct.' },
             { status: 404 }
           );
         }
