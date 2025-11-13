@@ -6,6 +6,7 @@ import OneTapTrading from "@/components/OneTapTrading";
 import AIPoweredInsights from "@/components/AIPoweredInsights";
 import FAQSection from "@/components/FAQSection";
 import WaitlistSection from "@/components/WaitlistSection";
+import BlogSection from "@/components/BlogSection";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <AIPoweredInsights />
       <FAQSection />
       <WaitlistSection />
+      <BlogSection />
     </main>
   );
 }
